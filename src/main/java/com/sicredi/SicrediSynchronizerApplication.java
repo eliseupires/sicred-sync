@@ -25,20 +25,22 @@ public class SicrediSynchronizerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		if (args.length > 1) {
-//			log.error("unexpected parameter: {}", args[1]);
-//			return;
-//		}
-//
-//		if (args.length == 0) {
-//			log.error("expected parameter <input-file>");
-//			return;
-//		}
+		if (args.length > 1) {
+			log.error("unexpected parameter: {}", args[1]);
+			return;
+		}
 
+		if (args.length == 0) {
+			log.error("expected parameter <input-file>");
+			return;
+		}
+		log.info("Starting synchronization process");
 		try {
-			fileHandlerService.processFileBySynchronizer("C:\\projetos-test\\javadevjournal\\Spring-Boot\\teste.csv", synchronizeService);
+			//é passado como parametro o path csv juntamente com a estratégia de sicronização
+			fileHandlerService.processFileBySynchronizer(args[0], synchronizeService);
 		} catch (Exception e) {
 			log.error("Finishing process unsuccessfully. Details: {}", e.getMessage());
 		}
+		log.info("Finishing synchronization process");
 	}
 }
