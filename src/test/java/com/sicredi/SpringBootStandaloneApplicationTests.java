@@ -1,4 +1,4 @@
-package com.javadevjournal;
+package com.sicredi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

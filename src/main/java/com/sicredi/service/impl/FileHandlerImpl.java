@@ -104,13 +104,10 @@ public class FileHandlerImpl implements FileHandlerService {
 	}
 
 	private void treateNewCsvPathName(String csvPath) {
-		String nameWithoutExtension = csvPath.substring(0, csvPath.lastIndexOf('.'))
-				.substring(csvPath.lastIndexOf('\\') + 1);
 		String extensionFile = csvPath.substring(csvPath.lastIndexOf('.') + 1);
-		String path = csvPath.replace(nameWithoutExtension+"."+extensionFile,"");
 		String date = String.valueOf(new Date().getTime());
 
-		this.newCsvPathName = String.format("%s\\%s_%s.%s", path, nameWithoutExtension, date, extensionFile);
+		this.newCsvPathName = csvPath.replaceAll("(?i)\\.[^.\\\\/:*?\"<>|\r\n]+$", "_".concat(date).concat(".").concat(extensionFile));
 	}
 
 }
