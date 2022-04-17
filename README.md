@@ -20,6 +20,18 @@ agencia;conta;saldo;status
 Java 1.8
 Maven
 ```
+## 🔧 application.properties
+No arquivo application.properties existe 3 variáveis:
+```
+file.csv.delimiter=;
+Define qual demilitador utilizado para csv
+
+file.csv.column.synchronized.name=sicronized
+Define qual o nome da nova coluna a ser adicionada
+
+sincronize.count.by.group=1000
+Define a quantidade de registros processados por vez. Estratégia criada para evitar "java.lang.OutOfMemoryError"
+```
 
 ## 🚀 Criando Jar 
 
